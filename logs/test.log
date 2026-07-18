@@ -1,0 +1,17 @@
+2026-07-18 17:16:18.875 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Logged in with credentials from LoginData.json
+2026-07-18 17:16:19.623 [main] INFO  org.rubicon.automation.pages.DashboardPage - Dashboard page loaded
+2026-07-18 17:16:19.624 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Setup complete: User is now on dashboard page
+2026-07-18 17:16:19.626 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects Card page object initialized
+2026-07-18 17:16:19.689 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Scheduled Projects card is visible
+2026-07-18 17:16:19.864 [main] ERROR org.rubicon.automation.pages.ScheduledProjectsCard - Unable to read dashboard card count: Text to parse is null or empty
+2026-07-18 17:16:20.021 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Clicked on Scheduled Projects card
+2026-07-18 17:16:20.022 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects Card clicked
+2026-07-18 17:16:20.193 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Searching for project: TEST FP Projects
+2026-07-18 17:16:22.207 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects Card search result
+2026-07-18 17:16:22.328 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Page refreshed and project list reloaded
+2026-07-18 17:16:24.334 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects Card page refreshed
+2026-07-18 17:16:24.463 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Export button clicked
+2026-07-18 17:16:26.009 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Snackbar text: The data may take some time to export. Please wait.
+2026-07-18 17:16:26.009 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects Card export completed
+2026-07-18 17:16:26.056 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Scheduled Projects title text: Scheduled Projects (4)
+2026-07-18 17:16:26.057 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects count retrieved: 4
