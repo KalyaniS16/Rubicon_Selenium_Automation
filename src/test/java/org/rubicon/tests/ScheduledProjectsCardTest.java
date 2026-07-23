@@ -124,6 +124,13 @@ public class ScheduledProjectsCardTest extends BaseTest {
         }
     }
 
+    @Test(priority=9)
+    public void goBackToDashboard()
+    {
+        scheduledProjectsCard.goBackToDashboardPage();
+        LOG.info("Going back to dashboard page from Scheduled Projects page");
+    }
+
 }
 
 

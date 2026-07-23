@@ -1,19 +1,17 @@
-2026-07-23 15:13:39.517 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Logged in with credentials from LoginData.json
-2026-07-23 15:13:40.838 [main] INFO  org.rubicon.automation.pages.DashboardPage - Dashboard page loaded
-2026-07-23 15:13:40.838 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Setup complete: User is now on dashboard page
-2026-07-23 15:13:40.839 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects Card page object initialized
-2026-07-23 15:13:40.905 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Scheduled Projects card is visible
-2026-07-23 15:13:43.835 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Dashboard Scheduled Projects card count text: 3
-2026-07-23 15:13:43.835 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Dashboard Scheduled Projects card count is: 3
-2026-07-23 15:13:44.182 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Clicked on Dashboard Scheduled Projects card
-2026-07-23 15:13:44.183 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects Card clicked
-2026-07-23 15:13:45.330 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Scheduled Projects title text: Scheduled Projects (3)
-2026-07-23 15:13:45.331 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects count retrieved: 3
-2026-07-23 15:13:45.332 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects count matches between dashboard and scheduled projects page: 3
-2026-07-23 15:13:45.694 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Searching for project: CP Projects
-2026-07-23 15:13:47.703 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects Card search result
-2026-07-23 15:13:47.891 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Page refreshed and project list reloaded
-2026-07-23 15:13:49.899 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects Card page refreshed
-2026-07-23 15:13:50.020 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Export button clicked
-2026-07-23 15:13:51.587 [main] INFO  org.rubicon.automation.pages.ScheduledProjectsCard - Snackbar text: The data may take some time to export. Please wait.
-2026-07-23 15:13:51.587 [main] INFO  org.rubicon.tests.ScheduledProjectsCardTest - Scheduled Projects Card export completed
+2026-07-23 18:29:41.514 [main] INFO  org.rubicon.tests.ActiveProjectsCardTest - Logged in with credentials from LoginData.json
+2026-07-23 18:29:42.511 [main] INFO  org.rubicon.automation.pages.DashboardPage - Dashboard page loaded
+2026-07-23 18:29:42.512 [main] INFO  org.rubicon.tests.ActiveProjectsCardTest - Setup complete: User is now on dashboard page
+2026-07-23 18:29:42.514 [main] INFO  org.rubicon.tests.ActiveProjectsCardTest - Active Projects Card page object initialized
+2026-07-23 18:29:42.582 [main] INFO  org.rubicon.automation.pages.ActiveProjectsCard - Active Projects card is visible
+2026-07-23 18:29:45.929 [main] INFO  org.rubicon.automation.pages.ActiveProjectsCard - Dashboard Active Projects card count text: 1
+2026-07-23 18:29:45.929 [main] INFO  org.rubicon.tests.ActiveProjectsCardTest - Dashboard Active Projects card count is: 1
+2026-07-23 18:29:46.113 [main] INFO  org.rubicon.automation.pages.ActiveProjectsCard - Clicked on Dashboard Active Projects card
+2026-07-23 18:29:46.114 [main] INFO  org.rubicon.tests.ActiveProjectsCardTest - Active Projects Card clicked
+2026-07-23 18:29:46.703 [main] INFO  org.rubicon.automation.pages.ActiveProjectsCard - Active Projects title text: Active Projects (1)
+2026-07-23 18:29:46.703 [main] INFO  org.rubicon.tests.ActiveProjectsCardTest - Active Projects count retrieved: 1
+2026-07-23 18:29:46.707 [main] INFO  org.rubicon.tests.ActiveProjectsCardTest - Active Projects count matches between dashboard and active projects page: 1
+2026-07-23 18:29:46.859 [main] INFO  org.rubicon.automation.pages.ActiveProjectsCard - Export button clicked
+2026-07-23 18:29:48.420 [main] INFO  org.rubicon.automation.pages.ActiveProjectsCard - Snackbar text: The data may take some time to export. Please wait.
+2026-07-23 18:29:48.420 [main] INFO  org.rubicon.tests.ActiveProjectsCardTest - Active Projects Card export completed
+2026-07-23 18:29:48.828 [main] INFO  org.rubicon.automation.pages.ActiveProjectsCard - Going back to dashboard page
+2026-07-23 18:29:48.829 [main] INFO  org.rubicon.tests.ActiveProjectsCardTest - Going back to dashboard page from Active Projects page
