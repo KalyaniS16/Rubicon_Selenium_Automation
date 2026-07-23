@@ -12,15 +12,15 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class ScheduledProjectsCardTest extends BaseTest {
 
     private static final Logger LOG = LogManager.getLogger(ScheduledProjectsCardTest.class);
-    private DashboardPage dashboardPage;
     private ScheduledProjectsCard scheduledProjectsCard;
-    private int dashboardScheduledProjectCount = -1;
+    private int dashboardScheduledProjectsCount = -1;
+    private int scheduledProjectPageCount = -1;
 
     @BeforeClass
     public void setupScheduledProjectsCardTest() throws IOException {
@@ -42,7 +42,7 @@ public class ScheduledProjectsCardTest extends BaseTest {
         }
 
         // Initialize dashboard page and wait for it to load
-        dashboardPage = new DashboardPage(driver);
+        DashboardPage dashboardPage = new DashboardPage(driver);
         dashboardPage.waitForDashboardPage();
         LOG.info("Setup complete: User is now on dashboard page");
 
@@ -58,39 +58,60 @@ public class ScheduledProjectsCardTest extends BaseTest {
     }
 
     @Test(priority=2)
-    public void scheduledProjectDashboardCount()
+    public void verifyDashboardScheduledProjectCount()
     {
-        dashboardScheduledProjectCount = scheduledProjectsCard.getDashboardCardCount();
-        LOG.info("Scheduled Projects card count is: " + dashboardScheduledProjectCount);
+        dashboardScheduledProjectsCount = scheduledProjectsCard.getDashboardScheduledProjectsCardCount();
+        LOG.info("Dashboard Scheduled Projects card count is: {}", dashboardScheduledProjectsCount);
+        assertTrue(dashboardScheduledProjectsCount >= 0, "Dashboard Scheduled Projects count should be non-negative");
     }
 
     @Test(priority=3)
     public void clickScheduledProjectsCard()
     {
-        scheduledProjectsCard.clickCard();
+        scheduledProjectsCard.clickScheduledProjectsCard();
         LOG.info("Scheduled Projects Card clicked");
     }
 
     @Test(priority=4)
+    public void verifyScheduledProjectsCardCount()
+    {
+        scheduledProjectPageCount = scheduledProjectsCard.getInnerCardScheduledProjectsTitleCount();
+        LOG.info("Scheduled Projects count retrieved: {}", scheduledProjectPageCount);
+        assertTrue(scheduledProjectPageCount >= 0, "Scheduled Projects page count should be non-negative");
+    }
+
+    @Test(priority=5)
+    public void verifyScheduledProjectsCountMatches(){
+        assertTrue(dashboardScheduledProjectsCount >= 0,
+                "Dashboard count was never captured. Make sure verifyDashboardScheduledProjectCount() ran first.");
+        assertTrue(scheduledProjectPageCount >= 0,
+                "Page count was never captured. Make sure verifyScheduledProjectsCardCount() ran first.");
+        assertEquals(dashboardScheduledProjectsCount, scheduledProjectPageCount,
+                "Dashboard card count should match Scheduled Projects page title count");
+        LOG.info("Scheduled Projects count matches between dashboard and scheduled projects page: {}",
+                dashboardScheduledProjectsCount);
+    }
+
+    @Test(priority=6)
     public void searchForProject(){
         try {
-            scheduledProjectsCard.searchProject("TEST FP Projects");
+            scheduledProjectsCard.searchProject("CP Projects");
             LOG.info("Scheduled Projects Card search result");
         } catch (RuntimeException e) {
             LOG.warn("Search test skipped - test data not available: {}", e.getMessage());
             // Skip this test if project doesn't exist
-            throw new org.testng.SkipException("Test project 'TEST FP Projects' not found. This is expected if test data is not loaded.");
+            throw new org.testng.SkipException("Test project 'CP Projects' not found. This is expected if test data is not loaded.");
         }
     }
 
-    @Test(priority=5)
+    @Test(priority=7)
     public void pageRefreshProjectsCard()
     {
         scheduledProjectsCard.pageRefresh();
         LOG.info("Scheduled Projects Card page refreshed");
     }
 
-    @Test(priority=6)
+    @Test(priority=8)
     public void downloadScheduledProjects()
     {
         try {
@@ -102,31 +123,6 @@ public class ScheduledProjectsCardTest extends BaseTest {
             throw new org.testng.SkipException("Export modal not available. This may indicate UI changes or test environment issues.");
         }
     }
-
-    @Test(priority=7)
-    public void verifyScheduledProjectsCount()
-    {
-        int scheduledProjectPageCount = scheduledProjectsCard.getScheduledProjectsTitleCount();
-        LOG.info("Scheduled Projects count retrieved: {}", scheduledProjectPageCount);
-        assertTrue(scheduledProjectPageCount >= 0, "Scheduled Projects count should be non-negative");
-    }
-
-    @Test(priority=8)
-    public void compareIfCountIsCorrect(){
-        // Validate that dashboard count was captured in priority=2
-        assertTrue(dashboardScheduledProjectCount >= 0,
-            "Dashboard count was never captured! Make sure scheduledProjectDashboardCount() ran first.");
-
-        // We read dashboard count earlier (priority=2) before navigating into the Scheduled Projects page.
-        // Now read the count from the Scheduled Projects page and compare to the previously stored dashboard count.
-        int scheduledPageCount = scheduledProjectsCard.getScheduledProjectsTitleCount();
-
-        LOG.info("Comparing dashboard count ({}) with scheduled page title count ({})", dashboardScheduledProjectCount, scheduledPageCount);
-        assertEquals(dashboardScheduledProjectCount, scheduledPageCount,
-            "Dashboard card count should match scheduled page title count");
-        LOG.info("Scheduled Projects count verification PASSED - both counts match: {}", dashboardScheduledProjectCount);
-    }
-
 
 }
 
