@@ -6,17 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-public class ScheduledProjectsCard extends BasePage {
-
-    public ScheduledProjectsCard(WebDriver driver) {
+public class ScheduledEmployeesCard extends BasePage{
+    public ScheduledEmployeesCard(WebDriver driver) {
         super(driver);
     }
-
-    private static final Logger LOG = LogManager.getLogger(ScheduledProjectsCard.class);
+    private static final Logger LOG = LogManager.getLogger(ScheduledEmployeesCard.class);
     private static final Pattern DIGITS = Pattern.compile("\\d+");
 
     /** Cached counts so comparison works after navigating away from the dashboard. */
@@ -24,38 +22,38 @@ public class ScheduledProjectsCard extends BasePage {
     private Integer cachedPageCount;
 
     /**
-     * Locators for Dashboard Scheduled Projects card
+     * Locators for Dashboard Scheduled Employees card
      */
-    private final By cardTitle = By.xpath("//div[normalize-space()='Scheduled Projects']");
+    private final By cardTitle = By.xpath("//div[normalize-space()='Scheduled Employees']");
     private final By cardContainer = By.xpath(
             "//div[contains(@class,'dashboard-card')]"
-                    + "//div[normalize-space()='Scheduled Projects']"
+                    + "//div[normalize-space()='Scheduled Employees']"
                     + "/ancestor::div[contains(@class,'cursor-pointer')][1]");
     private final By dashboardCardCount = By.xpath(
             "//div[contains(@class,'dashboard-card')]"
-                    + "//div[normalize-space()='Scheduled Projects']"
+                    + "//div[normalize-space()='Scheduled Employees']"
                     + "/ancestor::div[contains(@class,'cursor-pointer')][1]"
                     + "//div[contains(@class,'text-9xl') or contains(@class,'text-8xl') or contains(@class,'text-7xl')]");
 
     /**
-     * Method to verify Dashboard Scheduled Projects card is visible
+     * Method to verify Dashboard Scheduled Employees card is visible
      */
     public boolean isCardVisible() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(cardTitle));
-            LOG.info("Scheduled Projects card is visible");
+            LOG.info("Scheduled Employees card is visible");
             return true;
         } catch (Exception e) {
-            LOG.warn("Scheduled Projects card is not visible: {}", e.getMessage());
+            LOG.warn("Scheduled Employees card is not visible: {}", e.getMessage());
             return false;
         }
     }
 
     /**
-     * Extract integer count from the dashboard Scheduled Projects card count element.
+     * Extract integer count from the dashboard Scheduled Employees card count element.
      * Waits until the async count text is populated before parsing.
      */
-    public int getDashboardScheduledProjectsCardCount() {
+    public int getDashboardScheduledEmployeesCardCount() {
         try {
             WebElement countEl = wait.until(ExpectedConditions.visibilityOfElementLocated(dashboardCardCount));
             wait.until(d -> {
@@ -64,7 +62,7 @@ public class ScheduledProjectsCard extends BasePage {
             });
 
             String text = countEl.getText().trim();
-            LOG.info("Dashboard Scheduled Projects card count text: {}", text);
+            LOG.info("Dashboard Scheduled Employees card count text: {}", text);
             cachedDashboardCount = extractFirstInteger(text);
             return cachedDashboardCount;
         } catch (Exception e) {
@@ -74,41 +72,41 @@ public class ScheduledProjectsCard extends BasePage {
     }
 
     /**
-     * Method to click on the Dashboard Scheduled Projects card
+     * Method to click on the Dashboard Scheduled Employees card
      */
-    public void clickScheduledProjectsCard() {
+    public void clickScheduledEmployeesCard() {
         try {
             WebElement card = wait.until(ExpectedConditions.elementToBeClickable(cardContainer));
             card.click();
-            LOG.info("Clicked on Dashboard Scheduled Projects card");
+            LOG.info("Clicked on Dashboard Scheduled Employees card");
         } catch (Exception e) {
             LOG.error("Failed to click on card: {}", e.getMessage());
-            throw new RuntimeException("Could not click on Dashboard Scheduled Projects card", e);
+            throw new RuntimeException("Could not click on Dashboard Scheduled Employees card", e);
         }
     }
 
-    // Locator for Scheduled Projects page title that contains the count, e.g. "Scheduled Projects (3)"
-    private final By scheduledProjectsTitle = By.xpath("//div[contains(@class,'title-ui-design') and contains(normalize-space(),'Scheduled Projects')]");
+    // Locator for Scheduled Employees page title that contains the count, e.g. "Scheduled Employees (3)"
+    private final By scheduledEmployeesTitle = By.xpath("//div[contains(@class,'title-ui-design') and contains(normalize-space(),'Scheduled Employees')]");
 
     /**
-     * Extract integer count from the Scheduled Projects page title (e.g. "Scheduled Projects (3)").
+     * Extract integer count from the Scheduled Employees page title (e.g. "Scheduled Employees (3)").
      * Waits until the title includes (N) before parsing.
      */
-    public int getInnerCardScheduledProjectsTitleCount() {
+    public int getInnerCardScheduledEmployeesTitleCount() {
         try {
-            WebElement titleEl = wait.until(ExpectedConditions.visibilityOfElementLocated(scheduledProjectsTitle));
+            WebElement titleEl = wait.until(ExpectedConditions.visibilityOfElementLocated(scheduledEmployeesTitle));
             wait.until(d -> {
                 String t = titleEl.getText();
                 return t != null && DIGITS.matcher(t).find();
             });
 
             String text = titleEl.getText().trim();
-            LOG.info("Scheduled Projects title text: {}", text);
+            LOG.info("Scheduled Employees title text: {}", text);
             cachedPageCount = extractFirstInteger(text);
             return cachedPageCount;
         } catch (Exception e) {
-            LOG.error("Failed to read Scheduled Projects title count: {}", e.getMessage());
-            throw new RuntimeException("Could not read Scheduled Projects title count", e);
+            LOG.error("Failed to read Scheduled Employees title count: {}", e.getMessage());
+            throw new RuntimeException("Could not read Scheduled Employees title count", e);
         }
     }
 
@@ -139,20 +137,20 @@ public class ScheduledProjectsCard extends BasePage {
      * Compare previously read dashboard and page counts.
      * Uses cached values so this works after navigating away from the dashboard.
      */
-    public void verifyScheduledProjectsCountMatches() {
+    public void verifyScheduledEmployeesCountMatches() {
         if (cachedDashboardCount == null) {
             throw new RuntimeException(
-                    "Dashboard count was not read yet. Call getDashboardScheduledProjectsCardCount() first.");
+                    "Dashboard count was not read yet. Call getDashboardScheduledEmployeesCardCount() first.");
         }
-        int scheduledProjectsCount = cachedPageCount != null
+        int scheduledEmployeesCount = cachedPageCount != null
                 ? cachedPageCount
-                : getInnerCardScheduledProjectsTitleCount();
+                : getInnerCardScheduledEmployeesTitleCount();
 
-        if (cachedDashboardCount.equals(scheduledProjectsCount)) {
-            LOG.info("Scheduled Projects count matches: {}", cachedDashboardCount);
+        if (cachedDashboardCount.equals(scheduledEmployeesCount)) {
+            LOG.info("Scheduled Employees count matches: {}", cachedDashboardCount);
         } else {
-            throw new RuntimeException("Scheduled Projects count mismatch - dashboard: "
-                    + cachedDashboardCount + " vs scheduled page: " + scheduledProjectsCount);
+            throw new RuntimeException("Scheduled Employees count mismatch - dashboard: "
+                    + cachedDashboardCount + " vs scheduled page: " + scheduledEmployeesCount);
         }
     }
 
@@ -163,17 +161,17 @@ public class ScheduledProjectsCard extends BasePage {
     private final By snackBarText = By.xpath("//span[contains(text(),'The data may take some time to export')]");
     private final By backButton = By.xpath("//button[contains(@class, 'back-button-top')]");
 
-    // Search for the Project
-    public void searchProject(String projectName) {
+    // Search for the Employee
+    public void searchEmployees(String employeeName) {
         try {
             WebElement search = wait.until(ExpectedConditions.elementToBeClickable(searchInput));
             search.clear();
-            search.sendKeys(projectName);
-            LOG.info("Searching for project: {}", projectName);
+            search.sendKeys(employeeName);
+            LOG.info("Searching for employee: {}", employeeName);
             Thread.sleep(2000);
         } catch (Exception e) {
-            LOG.error("Error during project search: {}", e.getMessage());
-            throw new RuntimeException("Could not search for project: " + projectName, e);
+            LOG.error("Error during employee search: {}", e.getMessage());
+            throw new RuntimeException("Could not search for employee: " + employeeName, e);
         }
     }
 
@@ -182,7 +180,7 @@ public class ScheduledProjectsCard extends BasePage {
         try {
             WebElement refresh = wait.until(ExpectedConditions.elementToBeClickable(refreshButton));
             refresh.click();
-            LOG.info("Page refreshed and project list reloaded");
+            LOG.info("Page refreshed and employee list reloaded");
             // Wait for page to reload
             Thread.sleep(2000);
         } catch (Exception e) {
@@ -192,7 +190,7 @@ public class ScheduledProjectsCard extends BasePage {
     }
 
     // Export the ScheduledProjects
-    public void exportScheduledProjects() {
+    public void exportScheduledEmployees() {
         try {
             WebElement export = wait.until(ExpectedConditions.elementToBeClickable(exportButton));
             export.click();
@@ -227,4 +225,5 @@ public class ScheduledProjectsCard extends BasePage {
             throw new RuntimeException("Could not go back to dashboard page", e);
         }
     }
+
 }

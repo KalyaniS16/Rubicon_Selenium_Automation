@@ -1,48 +1,21 @@
-2026-07-31 13:13:33.882 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Logged in with credentials from LoginData.json
-2026-07-31 13:13:34.677 [main] INFO  org.rubicon.automation.pages.DashboardPage - Dashboard page loaded
-2026-07-31 13:13:34.677 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Setup complete: User is now on dashboard page
-2026-07-31 13:13:34.680 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Inactive Projects Card page object initialized
-2026-07-31 13:13:34.742 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Inactive Projects card is visible
-2026-07-31 13:13:37.978 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Dashboard Inactive Projects card count text: 6063
-2026-07-31 13:13:37.978 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Dashboard Inactive Projects card count is: 6063
-2026-07-31 13:13:38.147 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Clicked on Dashboard Inactive Projects card
-2026-07-31 13:13:38.147 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Active Projects Card clicked
-2026-07-31 13:13:38.733 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Inactive Projects title text: Inactive Projects (6,063)
-2026-07-31 13:13:38.733 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Inactive Projects count retrieved: 6063
-2026-07-31 13:13:38.736 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Inactive Projects count matches between dashboard and inactive projects page: 6063
-2026-07-31 13:13:38.860 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Export button clicked
-2026-07-31 13:13:40.419 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Snackbar text: The data may take some time to export. Please wait.
-2026-07-31 13:13:40.419 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Inactive Projects Card export completed
-2026-07-31 13:13:40.698 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Searching for project: IRS-Twin Rivers
-2026-07-31 13:13:42.700 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Inactive Projects Card search result
-2026-07-31 13:13:42.876 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Checkbox has been selected
-2026-07-31 13:13:42.877 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Project selected for archiving
-2026-07-31 13:13:42.929 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Archiving project
-2026-07-31 13:13:43.140 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Confirmation popup OK clicked
-2026-07-31 13:13:44.431 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Selected projects are archived successfully.
-2026-07-31 13:13:44.744 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Success dialog dismissed
-2026-07-31 13:13:54.812 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Selected project archived successfully
-2026-07-31 13:13:54.953 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Page refreshed and project list reloaded
-2026-07-31 13:13:56.958 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Refreshing page to refresh
-2026-07-31 13:13:57.133 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Filter button clicked
-2026-07-31 13:13:57.133 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Filter button clicked
-2026-07-31 13:13:57.425 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Searching for project: P0056
-2026-07-31 13:13:58.035 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Filter applied
-2026-07-31 13:14:00.041 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Filter applied successfully
-2026-07-31 13:14:00.184 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Filter button clicked
-2026-07-31 13:14:00.184 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Clicked on Filter again to clear the existing filter
-2026-07-31 13:14:01.358 [main] ERROR org.rubicon.automation.pages.InactiveProjectsCard - Error clearing filter: element click intercepted: Element <button _ngcontent-oul-c315="" class="button_icon">...</button> is not clickable at point (899, 384). Other element would receive the click: <div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"></div>
-  (Session info: chrome=150.0.7871.187)
-Build info: version: '4.45.0', revision: 'cd6a3cd cd6a3cdfca6970f62e5bc8344109d0fe0e2af05e'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1794fe8954676731660d7682306cadd1, clickElement {id=f.5EC6A6B519088F2E640638905DD6D966.d.75F58A85E745933331A25FB3AACFC035.e.6503}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 150.0.7871.187, chrome: {chromedriverVersion: 150.0.7871.124 (9261fd0a595..., userDataDir: C:\Users\KALYAN~1.SAJ\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53186}, goog:processID: 32192, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53186/devtoo..., se:cdpVersion: 150.0.7871.187, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (1794fe8954676731660d7682306cadd1)] -> xpath: //button[.//span[contains(text(),'rotate_right')]]]
-Session ID: 1794fe8954676731660d7682306cadd1
-2026-07-31 13:14:01.358 [main] WARN  org.rubicon.tests.InactiveProjectsCardTest - Clear filter test failed: Could not clear filter
-2026-07-31 13:14:01.482 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Project status selected
-2026-07-31 13:14:01.637 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Filter applied
-2026-07-31 13:14:03.646 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Project status filter applied successfully
-2026-07-31 13:14:03.839 [main] INFO  org.rubicon.automation.pages.InactiveProjectsCard - Going back to dashboard page
-2026-07-31 13:14:03.840 [main] INFO  org.rubicon.tests.InactiveProjectsCardTest - Going back to dashboard page from Inactive Projects page
+2026-07-31 14:37:52.811 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Logged in with credentials from LoginData.json
+2026-07-31 14:37:53.663 [main] INFO  org.rubicon.automation.pages.DashboardPage - Dashboard page loaded
+2026-07-31 14:37:53.663 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Setup complete: User is now on dashboard page
+2026-07-31 14:37:53.665 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card page object initialized
+2026-07-31 14:37:53.735 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Scheduled Employees card is visible
+2026-07-31 14:37:57.003 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Dashboard Scheduled Employees card count text: 6
+2026-07-31 14:37:57.003 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Dashboard Scheduled Employees card count is: 6
+2026-07-31 14:37:57.246 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Clicked on Dashboard Scheduled Employees card
+2026-07-31 14:37:57.246 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card clicked
+2026-07-31 14:37:58.853 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Scheduled Employees title text: Scheduled Employees (6)
+2026-07-31 14:37:58.853 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees count retrieved: 6
+2026-07-31 14:37:58.855 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees count matches between dashboard and scheduled employees page: 6
+2026-07-31 14:37:59.042 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Searching for employee: Sai Church
+2026-07-31 14:38:01.046 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card search result
+2026-07-31 14:38:01.169 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Page refreshed and employee list reloaded
+2026-07-31 14:38:03.181 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card page refreshed
+2026-07-31 14:38:03.304 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Export button clicked
+2026-07-31 14:38:04.872 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Snackbar text: The data may take some time to export. Please wait.
+2026-07-31 14:38:04.873 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card export completed
+2026-07-31 14:38:05.070 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Going back to dashboard page
+2026-07-31 14:38:05.070 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Going back to dashboard page from Scheduled Employees page
