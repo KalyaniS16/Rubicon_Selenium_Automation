@@ -12,7 +12,8 @@ import java.util.regex.Pattern;
 
 public class ActiveProjectsCard extends BasePage {
 
-    public ActiveProjectsCard(WebDriver driver) {
+    public ActiveProjectsCard(WebDriver driver)
+    {
         super(driver);
     }
     private static final Logger LOG = LogManager.getLogger(ActiveProjectsCard.class);
@@ -120,7 +121,10 @@ public class ActiveProjectsCard extends BasePage {
         if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("Text to parse is null or empty");
         }
-        Matcher m = DIGITS.matcher(text);
+        // Remove thousand separators first so "6,066" and "6066" both parse as 6066.
+        // Matching comma-formatted numbers with \\d{1,3} alone incorrectly yields 606 from 6066.
+        String normalized = text.replace(",", "");
+        Matcher m = DIGITS.matcher(normalized);
         if (m.find()) {
             try {
                 return Integer.parseInt(m.group());
