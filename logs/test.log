@@ -1,21 +1,17 @@
-2026-07-31 14:37:52.811 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Logged in with credentials from LoginData.json
-2026-07-31 14:37:53.663 [main] INFO  org.rubicon.automation.pages.DashboardPage - Dashboard page loaded
-2026-07-31 14:37:53.663 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Setup complete: User is now on dashboard page
-2026-07-31 14:37:53.665 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card page object initialized
-2026-07-31 14:37:53.735 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Scheduled Employees card is visible
-2026-07-31 14:37:57.003 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Dashboard Scheduled Employees card count text: 6
-2026-07-31 14:37:57.003 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Dashboard Scheduled Employees card count is: 6
-2026-07-31 14:37:57.246 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Clicked on Dashboard Scheduled Employees card
-2026-07-31 14:37:57.246 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card clicked
-2026-07-31 14:37:58.853 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Scheduled Employees title text: Scheduled Employees (6)
-2026-07-31 14:37:58.853 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees count retrieved: 6
-2026-07-31 14:37:58.855 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees count matches between dashboard and scheduled employees page: 6
-2026-07-31 14:37:59.042 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Searching for employee: Sai Church
-2026-07-31 14:38:01.046 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card search result
-2026-07-31 14:38:01.169 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Page refreshed and employee list reloaded
-2026-07-31 14:38:03.181 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card page refreshed
-2026-07-31 14:38:03.304 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Export button clicked
-2026-07-31 14:38:04.872 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Snackbar text: The data may take some time to export. Please wait.
-2026-07-31 14:38:04.873 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card export completed
-2026-07-31 14:38:05.070 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Going back to dashboard page
-2026-07-31 14:38:05.070 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Going back to dashboard page from Scheduled Employees page
+2026-07-31 14:57:33.428 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Logged in with credentials from LoginData.json
+2026-07-31 14:57:34.561 [main] INFO  org.rubicon.automation.pages.DashboardPage - Dashboard page loaded
+2026-07-31 14:57:34.563 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Setup complete: User is now on dashboard page
+2026-07-31 14:57:34.567 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Active Employees Card page object initialized
+2026-07-31 14:57:34.670 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Active Employees card is visible
+2026-07-31 14:57:37.483 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Dashboard Active Employees card count text: 1
+2026-07-31 14:57:37.484 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Dashboard Active Employees card count is: 1
+2026-07-31 14:57:37.712 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Clicked on Dashboard Active Employees card
+2026-07-31 14:57:37.713 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Active Projects Card clicked
+2026-07-31 14:57:38.335 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Active Employees title text: Active Employees (1)
+2026-07-31 14:57:38.336 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Active Employees count retrieved: 1
+2026-07-31 14:57:38.339 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Active Employees count matches between dashboard and active employees page: 1
+2026-07-31 14:57:38.537 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Export button clicked
+2026-07-31 14:57:40.116 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Snackbar text: The data may take some time to export. Please wait.
+2026-07-31 14:57:40.117 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Active Employees Card export completed
+2026-07-31 14:57:40.412 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Going back to dashboard page
+2026-07-31 14:57:40.414 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Going back to dashboard page from Active Employees page
