@@ -1,17 +1,17 @@
-2026-07-31 14:57:33.428 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Logged in with credentials from LoginData.json
-2026-07-31 14:57:34.561 [main] INFO  org.rubicon.automation.pages.DashboardPage - Dashboard page loaded
-2026-07-31 14:57:34.563 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Setup complete: User is now on dashboard page
-2026-07-31 14:57:34.567 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Active Employees Card page object initialized
-2026-07-31 14:57:34.670 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Active Employees card is visible
-2026-07-31 14:57:37.483 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Dashboard Active Employees card count text: 1
-2026-07-31 14:57:37.484 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Dashboard Active Employees card count is: 1
-2026-07-31 14:57:37.712 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Clicked on Dashboard Active Employees card
-2026-07-31 14:57:37.713 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Active Projects Card clicked
-2026-07-31 14:57:38.335 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Active Employees title text: Active Employees (1)
-2026-07-31 14:57:38.336 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Active Employees count retrieved: 1
-2026-07-31 14:57:38.339 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Active Employees count matches between dashboard and active employees page: 1
-2026-07-31 14:57:38.537 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Export button clicked
-2026-07-31 14:57:40.116 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Snackbar text: The data may take some time to export. Please wait.
-2026-07-31 14:57:40.117 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Active Employees Card export completed
-2026-07-31 14:57:40.412 [main] INFO  org.rubicon.automation.pages.ActiveEmployeesCard - Going back to dashboard page
-2026-07-31 14:57:40.414 [main] INFO  org.rubicon.tests.ActiveEmployeesCardTest - Going back to dashboard page from Active Employees page
+2026-08-04 14:58:23.015 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Logged in with credentials from LoginData.json
+2026-08-04 14:58:24.017 [main] INFO  org.rubicon.automation.pages.DashboardPage - Dashboard page loaded
+2026-08-04 14:58:24.018 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Setup complete: User is now on dashboard page
+2026-08-04 14:58:24.023 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Production Reports Card page object initialized
+2026-08-04 14:58:24.108 [main] INFO  org.rubicon.automation.pages.ProductionReportsCard - Production Reports card is visible
+2026-08-04 14:58:27.480 [main] INFO  org.rubicon.automation.pages.ProductionReportsCard - Dashboard Production Reports card count text: 0/0
+2026-08-04 14:58:27.481 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Dashboard Production Reports card count is: 0
+2026-08-04 14:58:27.727 [main] INFO  org.rubicon.automation.pages.ProductionReportsCard - Clicked on Dashboard Production Reports card
+2026-08-04 14:58:27.728 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Production Reports Card clicked
+2026-08-04 14:58:28.357 [main] INFO  org.rubicon.automation.pages.ProductionReportsCard - Production Reports title text: Production Reports (0)
+2026-08-04 14:58:28.357 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Production Reports count retrieved: 0
+2026-08-04 14:58:28.360 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Production Reports count matches between dashboard and production reports page: 0
+2026-08-04 14:58:28.531 [main] INFO  org.rubicon.automation.pages.ProductionReportsCard - Export button clicked
+2026-08-04 14:58:50.689 [main] WARN  org.rubicon.automation.pages.ProductionReportsCard - Snackbar message not found, but export may have been initiated
+2026-08-04 14:58:50.690 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Production Reports Card export completed
+2026-08-04 14:58:51.093 [main] INFO  org.rubicon.automation.pages.ProductionReportsCard - Going back to dashboard page
+2026-08-04 14:58:51.096 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Going back to dashboard page from Production Reports page
