@@ -2,16 +2,12 @@ package org.rubicon.tests;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.rubicon.automation.pages.DashboardPage;
 import org.rubicon.automation.pages.ProductionReportsCard;
-import org.rubicon.automation.pages.ScheduledProjectsCard;
 import org.rubicon.base.BaseTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -25,29 +21,10 @@ public class ProductionReportsCardTest extends BaseTest {
 
     @BeforeClass
     public void setupProductionReportsCardTest() throws IOException {
-        // Read login credentials from LoginData.json
-        List<HashMap<String, String>> testData = getJsonDataToMap(
-                System.getProperty("user.dir") + "\\src\\main\\resources\\testdata\\LoginData.json"
-        );
-
-        if (testData != null && !testData.isEmpty()) {
-            HashMap<String, String> credentials = testData.get(0);
-            String username = credentials.get("username");
-            String password = credentials.get("password");
-
-            // Perform login with credentials from JSON file
-            loginPage.login(username, password);
-            LOG.info("Logged in with credentials from LoginData.json");
-        } else {
-            throw new RuntimeException("No credentials found in LoginData.json");
-        }
-
-        // Initialize dashboard page and wait for it to load
-        DashboardPage dashboardPage = new DashboardPage(driver);
-        dashboardPage.waitForDashboardPage();
+        // Reuses existing login session when run in suite; logs in when run alone
+        ensureLoggedInOnDashboard();
         LOG.info("Setup complete: User is now on dashboard page");
 
-        // Initialize Production Reports Card page object
         productionReportsCard = new ProductionReportsCard(driver);
         LOG.info("Production Reports Card page object initialized");
     }

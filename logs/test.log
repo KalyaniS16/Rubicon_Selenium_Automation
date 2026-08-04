@@ -1,17 +1,20 @@
-2026-08-04 14:58:23.015 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Logged in with credentials from LoginData.json
-2026-08-04 14:58:24.017 [main] INFO  org.rubicon.automation.pages.DashboardPage - Dashboard page loaded
-2026-08-04 14:58:24.018 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Setup complete: User is now on dashboard page
-2026-08-04 14:58:24.023 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Production Reports Card page object initialized
-2026-08-04 14:58:24.108 [main] INFO  org.rubicon.automation.pages.ProductionReportsCard - Production Reports card is visible
-2026-08-04 14:58:27.480 [main] INFO  org.rubicon.automation.pages.ProductionReportsCard - Dashboard Production Reports card count text: 0/0
-2026-08-04 14:58:27.481 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Dashboard Production Reports card count is: 0
-2026-08-04 14:58:27.727 [main] INFO  org.rubicon.automation.pages.ProductionReportsCard - Clicked on Dashboard Production Reports card
-2026-08-04 14:58:27.728 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Production Reports Card clicked
-2026-08-04 14:58:28.357 [main] INFO  org.rubicon.automation.pages.ProductionReportsCard - Production Reports title text: Production Reports (0)
-2026-08-04 14:58:28.357 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Production Reports count retrieved: 0
-2026-08-04 14:58:28.360 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Production Reports count matches between dashboard and production reports page: 0
-2026-08-04 14:58:28.531 [main] INFO  org.rubicon.automation.pages.ProductionReportsCard - Export button clicked
-2026-08-04 14:58:50.689 [main] WARN  org.rubicon.automation.pages.ProductionReportsCard - Snackbar message not found, but export may have been initiated
-2026-08-04 14:58:50.690 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Production Reports Card export completed
-2026-08-04 14:58:51.093 [main] INFO  org.rubicon.automation.pages.ProductionReportsCard - Going back to dashboard page
-2026-08-04 14:58:51.096 [main] INFO  org.rubicon.tests.ProductionReportsCardTest - Going back to dashboard page from Production Reports page
+2026-08-04 15:56:17.064 [main] INFO  org.rubicon.automation.pages.DashboardPage - Dashboard page loaded
+2026-08-04 15:56:17.071 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Setup complete: User is now on dashboard page
+2026-08-04 15:56:17.073 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card page object initialized
+2026-08-04 15:56:17.136 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Scheduled Employees card is visible
+2026-08-04 15:56:20.348 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Dashboard Scheduled Employees card count text: 5
+2026-08-04 15:56:20.348 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Dashboard Scheduled Employees card count is: 5
+2026-08-04 15:56:20.505 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Clicked on Dashboard Scheduled Employees card
+2026-08-04 15:56:20.507 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card clicked
+2026-08-04 15:56:21.617 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Scheduled Employees title text: Scheduled Employees (5)
+2026-08-04 15:56:21.618 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees count retrieved: 5
+2026-08-04 15:56:21.621 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees count matches between dashboard and scheduled employees page: 5
+2026-08-04 15:56:21.786 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Searching for employee: Sai Church
+2026-08-04 15:56:23.796 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card search result
+2026-08-04 15:56:23.991 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Page refreshed and employee list reloaded
+2026-08-04 15:56:26.006 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card page refreshed
+2026-08-04 15:56:26.190 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Export button clicked
+2026-08-04 15:56:48.286 [main] WARN  org.rubicon.automation.pages.ScheduledEmployeesCard - Snackbar message not found, but export may have been initiated
+2026-08-04 15:56:48.286 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Scheduled Employees Card export completed
+2026-08-04 15:56:48.581 [main] INFO  org.rubicon.automation.pages.ScheduledEmployeesCard - Going back to dashboard page
+2026-08-04 15:56:48.582 [main] INFO  org.rubicon.tests.ScheduledEmployeesCardTest - Going back to dashboard page from Scheduled Employees page

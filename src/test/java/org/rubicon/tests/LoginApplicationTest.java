@@ -30,6 +30,7 @@ public class LoginApplicationTest extends BaseTest {
 
         // Perform login with provided credentials
         loginPage.login(input.get("username"), input.get("password"));
+        isLoggedIn = true;
 
         // Create dashboard page object
         DashboardPage dashboardPage = new DashboardPage(driver);

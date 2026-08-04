@@ -43,7 +43,8 @@ public class TestListener extends BaseTest implements ITestListener {
         test.fail(result.getThrowable());    //it will print the error message in the report
 
         try {
-            driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
+            // driver is static on BaseTest; get(null) works for static fields
+            driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(null);
         } catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
             e.printStackTrace();
         }
