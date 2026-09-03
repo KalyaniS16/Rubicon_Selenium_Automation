@@ -139,4 +139,24 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <!-- Run only dashboard card suite: mvn test -Pdashboard-cards -->
+    <profile>
+      <id>dashboard-cards</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <suiteXmlFiles>
+                <suiteXmlFile>TestSuite/dashboardCards.xml</suiteXmlFile>
+              </suiteXmlFiles>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

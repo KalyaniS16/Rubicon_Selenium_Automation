@@ -1,19 +1,26 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Dashboard Cards Test" parallel="false" thread-count="1">
+<suite name="Dashboard Cards Suite"
+       verbose="1"
+       parallel="false"
+       thread-count="1"
+       configfailurepolicy="continue">
 
     <listeners>
         <listener class-name="org.rubicon.listeners.TestListener"/>
     </listeners>
 
-    <test name="Verify Dashboard Cards Count functionality">
+    <!-- Override at runtime: mvn test -Dbrowser=chrome -->
+    <parameter name="browser" value="chrome"/>
+
+    <test name="Verify Dashboard Cards Count functionality" preserve-order="true">
         <classes>
-            <class name="org.rubicon.tests.DashboardPageTest"/>
-            <class name="org.rubicon.tests.ScheduledProjectsCardTest"/>
-            <class name="org.rubicon.tests.ActiveProjectsCardTest"/>
-            <class name="org.rubicon.tests.InactiveProjectsCardTest"/>
-            <class name="org.rubicon.tests.ScheduledEmployeesCardTest"/>
-            <class name="org.rubicon.tests.ActiveEmployeesCardTest"/>
-            <class name="org.rubicon.tests.ProductionReportsCardTest"/>
+            <class name="org.rubicon.tests.modules.dashboard.DashboardPageTest"/>
+            <class name="org.rubicon.tests.modules.dashboard.projectsCountTest.ScheduledProjectsCardTest"/>
+            <class name="org.rubicon.tests.modules.dashboard.projectsCountTest.ActiveProjectsCardTest"/>
+            <class name="org.rubicon.tests.modules.dashboard.projectsCountTest.InactiveProjectsCardTest"/>
+            <class name="org.rubicon.tests.modules.dashboard.projectsCountTest.ScheduledEmployeesCardTest"/>
+            <class name="org.rubicon.tests.modules.dashboard.projectsCountTest.ActiveEmployeesCardTest"/>
+            <class name="org.rubicon.tests.modules.dashboard.projectsCountTest.ProductionReportsCardTest"/>
         </classes>
     </test>
 

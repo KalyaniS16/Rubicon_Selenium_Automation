@@ -13,7 +13,7 @@
 
     <test name="Verify dashboard functionality">
         <classes>
-            <class name="org.rubicon.tests.DashboardPageTest"/>
+            <class name="org.rubicon.tests.modules.dashboard.DashboardPageTest"/>
         </classes>
     </test>
 

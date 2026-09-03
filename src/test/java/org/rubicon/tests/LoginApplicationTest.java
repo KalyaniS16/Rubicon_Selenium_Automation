@@ -2,8 +2,7 @@ package org.rubicon.tests;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.rubicon.automation.pages.DashboardPage;
-import org.rubicon.automation.pages.LoginPage;
+import org.rubicon.automation.pages.module.dashboard.DashboardPage;
 import org.rubicon.base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;

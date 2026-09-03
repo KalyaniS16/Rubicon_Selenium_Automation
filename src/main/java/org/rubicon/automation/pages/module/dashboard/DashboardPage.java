@@ -1,4 +1,4 @@
-package org.rubicon.automation.pages;
+package org.rubicon.automation.pages.module.dashboard;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.rubicon.automation.pages.BasePage;
 import org.rubicon.automation.utilities.WaitUtils;
 
 public class DashboardPage extends BasePage {

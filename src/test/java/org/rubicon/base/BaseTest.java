@@ -9,19 +9,24 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.rubicon.automation.app;
-import org.rubicon.automation.pages.DashboardPage;
+import org.rubicon.automation.pages.module.dashboard.DashboardPage;
 import org.rubicon.automation.pages.LoginPage;
-import org.testng.annotations.*;
+import org.rubicon.listeners.TestListener;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
+@Listeners(TestListener.class)
 public class BaseTest {
     // Shared across test classes in the same JVM run (suite or single-class)
     public static WebDriver driver;
@@ -79,10 +84,19 @@ public class BaseTest {
     public String getScreenShot(String testCaseName, WebDriver driver) throws IOException {
         TakesScreenshot ss = (TakesScreenshot)driver;
         File source = ss.getScreenshotAs(OutputType.FILE);
-//		we are giving path of the file where screenshot needs to be dumped
-        File file = new File(System.getProperty("user.dir")+"//reports//"+"testCaseName" +".png");
-        FileUtils.copyFile(source, file);
-        return System.getProperty("user.dir")+"//reports//" +"testCaseName" +".png";
+
+//		timestamp keeps one screenshot per failure instead of overwriting a single file
+        String fileName = testCaseName + "_"
+                + new SimpleDateFormat("yyyyMMdd_HHmmssSSS").format(new Date()) + ".png";
+
+        File destination = new File(System.getProperty("user.dir")
+                + File.separator + "reports"
+                + File.separator + "screenshots"
+                + File.separator + fileName);
+        FileUtils.copyFile(source, destination);
+
+//		path is relative to reports/index.html so the <img> resolves in the browser
+        return "screenshots/" + fileName;
     }
 
     /**

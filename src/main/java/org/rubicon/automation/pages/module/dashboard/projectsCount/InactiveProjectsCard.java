@@ -1,12 +1,16 @@
-package org.rubicon.automation.pages;
+package org.rubicon.automation.pages.module.dashboard.projectsCount;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.rubicon.automation.pages.BasePage;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -277,6 +281,8 @@ public class InactiveProjectsCard extends BasePage {
         try {
             WebElement filter = wait.until(ExpectedConditions.elementToBeClickable(filterButton));
             filter.click();
+            // Wait until the filter panel content is ready (overlay open)
+            wait.until(ExpectedConditions.visibilityOfElementLocated(searchProjectID));
             LOG.info("Filter button clicked");
         } catch (Exception e) {
             LOG.error("Error clicking filter button: {}", e.getMessage());
@@ -288,6 +294,12 @@ public class InactiveProjectsCard extends BasePage {
     private final By projectIDLabel = By.xpath("//mat-label[contains(@class,'text-heading') and normalize-space(text())='Project Id']");
     private final By searchProjectID = By.xpath("//input[@name='ProjectId' and @placeholder='Enter Project Id']");
     private final By  applyFilter = By.xpath("//button[contains(@class,'button_min') and normalize-space(text())='Apply']");
+    /** Clear/reset inside the open filter overlay (avoids page-level button under the backdrop). */
+    private final By clearFilterInPanel = By.xpath(
+            "//div[contains(@class,'cdk-overlay-pane')]"
+                    + "[.//input[@name='ProjectId']]"
+                    + "//button[.//span[contains(text(),'rotate_right')]]");
+    /** Fallback when clear control is outside the pane but still present. */
     private final By clearFilter = By.xpath("//button[.//span[contains(text(),'rotate_right')]]");
     private final By projectStatusLabel = By.xpath("///h2[normalize-space(text())='Project Status']");
     private final By selectProjectStatus = By.xpath("//label[contains(@class,'mat-checkbox-layout')][.//span[contains(@class,'mat-checkbox-label') and contains(.,'InProgress')]]");
@@ -297,6 +309,7 @@ public class InactiveProjectsCard extends BasePage {
     public void applyProjectIDFilter(String nameOfProject) {
         try {
             WebElement searchProject = wait.until(ExpectedConditions.visibilityOfElementLocated(searchProjectID));
+            searchProject.clear();
             searchProject.sendKeys(nameOfProject);
             LOG.info("Searching for project: {}", searchProject.getAttribute("value"));
 
@@ -313,6 +326,13 @@ public class InactiveProjectsCard extends BasePage {
     //Apply Filter- ProjectStatus
     public void applyProjectStatusFilter() {
         try {
+            // Re-open filter panel if it was closed after the previous clear/apply
+            boolean panelOpen = driver.findElements(searchProjectID).stream()
+                    .anyMatch(WebElement::isDisplayed);
+            if (!panelOpen) {
+                filter();
+            }
+
             WebElement clickProjectStatus = wait.until(ExpectedConditions.elementToBeClickable(selectProjectStatus));
             clickProjectStatus.click();
             LOG.info("Project status selected");
@@ -329,12 +349,37 @@ public class InactiveProjectsCard extends BasePage {
 
     //ClearFilter
     public void clearFilter() {
-        try{
-            WebElement clear =  wait.until(ExpectedConditions.elementToBeClickable(clearFilter));
-            clear.click();
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(searchProjectID));
+
+            WebElement clear = resolveClearFilterButton();
+            clickClearFilterButton(clear);
+
+            LOG.info("Filter cleared");
+            Thread.sleep(1500);
         } catch (Exception e) {
             LOG.error("Error clearing filter: {}", e.getMessage());
             throw new RuntimeException("Could not clear filter", e);
+        }
+    }
+
+    private WebElement resolveClearFilterButton() {
+        List<WebElement> inPanel = driver.findElements(clearFilterInPanel);
+        if (!inPanel.isEmpty()) {
+            return inPanel.get(0);
+        }
+        return wait.until(ExpectedConditions.presenceOfElementLocated(clearFilter));
+    }
+
+    private void clickClearFilterButton(WebElement clear) {
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(clear));
+            clear.click();
+        } catch (ElementClickInterceptedException e) {
+            // Backdrop from the open filter panel can intercept a normal click
+            LOG.warn("Clear click intercepted by overlay; using JavaScript click");
+            ((JavascriptExecutor) driver).executeScript(
+                    "arguments[0].scrollIntoView({block:'center'}); arguments[0].click();", clear);
         }
     }
 

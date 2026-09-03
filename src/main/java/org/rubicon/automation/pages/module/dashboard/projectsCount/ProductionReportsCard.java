@@ -1,4 +1,4 @@
-package org.rubicon.automation.pages;
+package org.rubicon.automation.pages.module.dashboard.projectsCount;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -6,16 +6,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.rubicon.automation.pages.BasePage;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ActiveEmployeesCard extends BasePage {
-    public ActiveEmployeesCard(WebDriver driver) {
+public class ProductionReportsCard extends BasePage {
+    public ProductionReportsCard(WebDriver driver) {
         super(driver);
     }
-
-    private static final Logger LOG = LogManager.getLogger(ActiveEmployeesCard.class);
+    private static final Logger LOG = LogManager.getLogger(ProductionReportsCard.class);
     private static final Pattern DIGITS = Pattern.compile("\\d+");
 
     /** Cached counts so comparison works after navigating away from the dashboard. */
@@ -23,38 +23,38 @@ public class ActiveEmployeesCard extends BasePage {
     private Integer cachedPageCount;
 
     /**
-     * Locators for Dashboard Active Employees card
+     * Locators for Dashboard Production Reports Card
      */
-    private final By cardTitle = By.xpath("//div[normalize-space()='Active Employees']");
+    private final By cardTitle = By.xpath("//div[normalize-space()='Production Reports']");
     private final By cardContainer = By.xpath(
             "//div[contains(@class,'dashboard-card')]"
-                    + "//div[normalize-space()='Active Employees']"
+                    + "//div[normalize-space()='Production Reports']"
                     + "/ancestor::div[contains(@class,'cursor-pointer')][1]");
     private final By dashboardCardCount = By.xpath(
             "//div[contains(@class,'dashboard-card')]"
-                    + "//div[normalize-space()='Active Employees']"
+                    + "//div[normalize-space()='Production Reports']"
                     + "/ancestor::div[contains(@class,'cursor-pointer')][1]"
                     + "//div[contains(@class,'text-9xl') or contains(@class,'text-8xl') or contains(@class,'text-7xl')]");
 
     /**
-     * Method to verify Dashboard Active Employees card is visible
+     * Method to verify Dashboard Production Reports card is visible
      */
     public boolean isCardVisible() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(cardTitle));
-            LOG.info("Active Employees card is visible");
+            LOG.info("Production Reports card is visible");
             return true;
         } catch (Exception e) {
-            LOG.warn("Active Employees card is not visible: {}", e.getMessage());
+            LOG.warn("Production Reports card is not visible: {}", e.getMessage());
             return false;
         }
     }
 
     /**
-     * Extract integer count from the dashboard Active Employees card count element.
+     * Extract integer count from the dashboard Production Reports card count element.
      * Waits until the async count text is populated before parsing.
      */
-    public int getDashboardActiveEmployeesCardCount() {
+    public int getDashboardProductionReportsCardCount() {
         try {
             WebElement countEl = wait.until(ExpectedConditions.visibilityOfElementLocated(dashboardCardCount));
             wait.until(d -> {
@@ -63,7 +63,7 @@ public class ActiveEmployeesCard extends BasePage {
             });
 
             String text = countEl.getText().trim();
-            LOG.info("Dashboard Active Employees card count text: {}", text);
+            LOG.info("Dashboard Production Reports card count text: {}", text);
             cachedDashboardCount = extractFirstInteger(text);
             return cachedDashboardCount;
         } catch (Exception e) {
@@ -73,41 +73,41 @@ public class ActiveEmployeesCard extends BasePage {
     }
 
     /**
-     * Method to click on the Dashboard Active Employees card
+     * Method to click on the Dashboard Production Reports card
      */
-    public void clickActiveEmployeesCard() {
+    public void clickProductionReportsCard() {
         try {
             WebElement card = wait.until(ExpectedConditions.elementToBeClickable(cardContainer));
             card.click();
-            LOG.info("Clicked on Dashboard Active Employees card");
+            LOG.info("Clicked on Dashboard Production Reports card");
         } catch (Exception e) {
             LOG.error("Failed to click on card: {}", e.getMessage());
-            throw new RuntimeException("Could not click on Dashboard Active Employees card", e);
+            throw new RuntimeException("Could not click on Dashboard Production Reports card", e);
         }
     }
 
-    // Locator for Active Employees page title that contains the count, e.g. "Active Employees (1)"
-    private final By activeEmployeesTitle = By.xpath("//div[contains(@class,'title-ui-design') and contains(normalize-space(),'Active Employees')]");
+    // Locator for Production Reports page title that contains the count, e.g. "Production Reports (3)"
+    private final By productionReportsTitle = By.xpath("//div[contains(@class,'title-ui-design') and contains(normalize-space(),'Production Reports')]");
 
     /**
-     * Extract integer count from the Active Employees page title (e.g. "Active Employees (1)").
+     * Extract integer count from the Production Reports page title (e.g. "Production Reports (3)").
      * Waits until the title includes (N) before parsing.
      */
-    public int getInnerCardActiveEmployeesTitleCount() {
+    public int getInnerCardProductionReportsTitleCount() {
         try {
-            WebElement titleEl = wait.until(ExpectedConditions.visibilityOfElementLocated(activeEmployeesTitle));
+            WebElement titleEl = wait.until(ExpectedConditions.visibilityOfElementLocated(productionReportsTitle));
             wait.until(d -> {
                 String t = titleEl.getText();
                 return t != null && DIGITS.matcher(t).find();
             });
 
             String text = titleEl.getText().trim();
-            LOG.info("Active Employees title text: {}", text);
+            LOG.info("Production Reports title text: {}", text);
             cachedPageCount = extractFirstInteger(text);
             return cachedPageCount;
         } catch (Exception e) {
-            LOG.error("Failed to read Active Employees title count: {}", e.getMessage());
-            throw new RuntimeException("Could not read Active Projects title count", e);
+            LOG.error("Failed to read Production Reports title count: {}", e.getMessage());
+            throw new RuntimeException("Could not read Production Reports title count", e);
         }
     }
 
@@ -138,29 +138,31 @@ public class ActiveEmployeesCard extends BasePage {
      * Compare previously read dashboard and page counts.
      * Uses cached values so this works after navigating away from the dashboard.
      */
-    public void verifyActiveProjectsCountMatches() {
+    public void verifyProductionReportsCountMatches() {
         if (cachedDashboardCount == null) {
             throw new RuntimeException(
-                    "Dashboard count was not read yet. Call getDashboardActiveProjectsCardCount() first.");
+                    "Dashboard count was not read yet. Call getDashboardProductionReportsCardCount() first.");
         }
-        int activeProjectsCount = cachedPageCount != null
+        int productionReportsCount = cachedPageCount != null
                 ? cachedPageCount
-                : getInnerCardActiveEmployeesTitleCount();
+                : getInnerCardProductionReportsTitleCount();
 
-        if (cachedDashboardCount.equals(activeProjectsCount)) {
-            LOG.info("Active Employees count matches: {}", cachedDashboardCount);
+        if (cachedDashboardCount.equals(productionReportsCount)) {
+            LOG.info("Production Reports count matches: {}", cachedDashboardCount);
         } else {
-            throw new RuntimeException("Active Employees count mismatch - dashboard: "
-                    + cachedDashboardCount + " vs active page: " + activeProjectsCount);
+            throw new RuntimeException("Production Reports count mismatch - dashboard: "
+                    + cachedDashboardCount + " vs production reports page: " + productionReportsCount);
         }
     }
+
+    // Locators for Export
 
     private final By exportButton = By.xpath("//button[contains(@class,'button_large') or contains(text(),'Export')]");
     private final By snackBarText = By.xpath("//span[contains(text(),'The data may take some time to export')]");
     private final By backButton = By.xpath("//button[contains(@class, 'back-button-top')]");
 
-    // Export the ActiveEmployees
-    public void exportActiveEmployees() {
+    // Export the ProductionReports
+    public void exportProductionReports() {
         try {
             WebElement export = wait.until(ExpectedConditions.elementToBeClickable(exportButton));
             export.click();
@@ -180,7 +182,7 @@ public class ActiveEmployeesCard extends BasePage {
             }
         } catch (Exception e) {
             LOG.error("Error during export: {}", e.getMessage());
-            throw new RuntimeException("Could not export active employees", e);
+            throw new RuntimeException("Could not export production reports", e);
         }
     }
 
@@ -195,5 +197,4 @@ public class ActiveEmployeesCard extends BasePage {
             throw new RuntimeException("Could not go back to dashboard page", e);
         }
     }
-
 }

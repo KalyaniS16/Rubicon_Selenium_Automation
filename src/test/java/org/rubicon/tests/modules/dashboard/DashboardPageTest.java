@@ -1,8 +1,8 @@
-package org.rubicon.tests;
+package org.rubicon.tests.modules.dashboard;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.rubicon.automation.pages.DashboardPage;
+import org.rubicon.automation.pages.module.dashboard.DashboardPage;
 import org.rubicon.base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -13,17 +13,16 @@ import java.io.IOException;
 public class DashboardPageTest extends BaseTest {
 
     private static final Logger LOG = LogManager.getLogger(DashboardPageTest.class);
-    DashboardPage dashboardPage;
+    private DashboardPage dashboardPage;
 
-    @BeforeClass
-    public void loginAndNavigateToDashboard() throws IOException {
-        LOG.info("Setting up: Ensuring login and navigating to dashboard");
+    @BeforeClass(alwaysRun = true)
+    public void setUp() throws IOException {
         ensureLoggedInOnDashboard();
         dashboardPage = new DashboardPage(driver);
-        LOG.info("Setup complete: User is now on dashboard page");
     }
 
-    @Test
+    @Test(priority = 1, groups = {"smoke", "dashboard"},
+            description = "Verify user lands on the dashboard page after login")
     public void verifyDashboardIsLoaded() {
         dashboardPage.waitForDashboardPage();
         Assert.assertTrue(driver.getCurrentUrl().contains("#/dashboard"),

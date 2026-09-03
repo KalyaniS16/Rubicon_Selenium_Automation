@@ -8,13 +8,15 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.rubicon.automation.reports.ReportManager;
 import org.rubicon.base.BaseTest;
+import org.testng.ISuite;
+import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import java.io.IOException;
 
-public class TestListener extends BaseTest implements ITestListener {
+public class TestListener extends BaseTest implements ITestListener, ISuiteListener {
 
     private static final Logger LOG = LogManager.getLogger(TestListener.class);
 
@@ -38,31 +40,37 @@ public class TestListener extends BaseTest implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        extentTest.get().fail(result.getThrowable());
-        test.log(Status.FAIL, "Test is fail");   //it is a log
-        test.fail(result.getThrowable());    //it will print the error message in the report
+        String testCaseName = result.getMethod().getMethodName();
+        ExtentTest current = extentTest.get();
+        current.fail(result.getThrowable());
 
         try {
             // driver is static on BaseTest; get(null) works for static fields
             driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(null);
         } catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
-            e.printStackTrace();
+            LOG.error("Could not read driver for screenshot of {}", testCaseName, e);
+            return;
         }
 
-        String filePath = null;
-        //Screenshot
-        //		iF SS doent exists, then it will print in the output saying that SS doesn't exists.
-        try {
-            filePath = getScreenShot(result.getMethod().getMethodName(), driver);   //in parameters of getScreenShot method, we have send the testCase name from above
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (driver == null) {
+            LOG.warn("No active driver, skipping screenshot for {}", testCaseName);
+            return;
         }
-        extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+
+        try {
+            current.addScreenCaptureFromPath(getScreenShot(testCaseName, driver), testCaseName);
+        } catch (IOException | RuntimeException e) {
+            LOG.error("Could not capture screenshot for {}", testCaseName, e);
+        }
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        ReportManager.logInfo("Test skipped: " + result.getMethod().getMethodName());
+        if (extentTest.get() != null) {
+            extentTest.get().skip(result.getThrowable() != null
+                    ? result.getThrowable()
+                    : new Exception("Test skipped"));
+        }
         LOG.warn("Test skipped: {}", result.getMethod().getMethodName());
     }
 
@@ -80,6 +88,17 @@ public class TestListener extends BaseTest implements ITestListener {
 
     @Override
     public void onFinish(ITestContext context) {
+        // Flush after each <test> so a mid-suite crash still leaves a report file.
+        ReportManager.flush();
+    }
+
+    @Override
+    public void onStart(ISuite suite) {
+    }
+
+    @Override
+    public void onFinish(ISuite suite) {
+        ReportManager.flush();
     }
 
 }
