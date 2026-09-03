@@ -31,7 +31,7 @@ public class app {
         System.out.println("Application: " + APPLICATION_NAME);
         System.out.println("URL: " + APPLICATION_URL);
         System.out.println("Version: " + FRAMEWORK_VERSION);
-        System.out.println("Framework: Selenium + TestNG");
+        System.out.println("Framework: Selenium + TestNG + Cucumber");
         System.out.println("Reporting: Extent Reports");
         System.out.println("Logging: Log4j");
         System.out.println("========================================");
