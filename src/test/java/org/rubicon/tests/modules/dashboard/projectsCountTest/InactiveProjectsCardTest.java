@@ -19,7 +19,7 @@ public class InactiveProjectsCardTest extends BaseTest {
 
     private static final Logger LOG = LogManager.getLogger(InactiveProjectsCardTest.class);
     private static final String TEST_DATA_PATH =
-            System.getProperty("user.dir") + "\\src\\main\\resources\\testdata\\InactiveProjectsCardData.json";
+            System.getProperty("user.dir") + "/src/main/resources/testdata/InactiveProjectsCardData.json";
 
     private InactiveProjectsCard inactiveProjectsCard;
     private HashMap<String, String> testData;

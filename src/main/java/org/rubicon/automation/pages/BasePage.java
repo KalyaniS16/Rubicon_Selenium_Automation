@@ -7,6 +7,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -42,12 +43,26 @@ public class BasePage {
         prop.load(fis);    // to load global.data properties file
 
         //		using ternary operation
-        String browserName = System.getProperty("browser")!=null ? System.getProperty("browser") : prop.getProperty("browser");           //this getProperty method will help to read the system level variables
-//		String browserName = prop.getProperty("browser");
+        String browserName = System.getProperty("browser") != null
+                ? System.getProperty("browser")
+                : prop.getProperty("browser");
+        if (browserName != null) {
+            browserName = browserName.trim();
+        }
 
-        if (browserName.equalsIgnoreCase("chrome")) {
+        boolean headless = resolveHeadless(prop);
+
+        if (browserName != null && browserName.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            if (headless) {
+                options.addArguments("--headless=new");
+            }
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
+            driver = new ChromeDriver(options);
         }
 //		else if (browserName.equalsIgnoreCase("firefox")) {
 //			WebDriverManager.firefoxdriver().setup();
@@ -58,8 +73,23 @@ public class BasePage {
 //			driver = new EdgeDriver();
 //		}
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+        if (!headless) {
+            driver.manage().window().maximize();
+        }
         return driver;
+    }
+
+    private boolean resolveHeadless(Properties prop) {
+        String systemHeadless = System.getProperty("headless");
+        if (systemHeadless != null && !systemHeadless.trim().isEmpty()) {
+            return Boolean.parseBoolean(systemHeadless.trim());
+        }
+        String os = System.getProperty("os.name", "").toLowerCase();
+        if (os.contains("linux") && System.getenv("DISPLAY") == null) {
+            return true;
+        }
+        String configured = prop.getProperty("headless", "false");
+        return Boolean.parseBoolean(configured.trim());
     }
 
     public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException {

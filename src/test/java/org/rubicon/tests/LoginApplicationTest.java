@@ -48,7 +48,7 @@ public class LoginApplicationTest extends BaseTest {
     @DataProvider(name = "getLoginData")
     public Object[][] getLoginTestData() throws IOException {
         List<HashMap<String, String>> testData = getJsonDataToMap(
-                System.getProperty("user.dir") + "\\src\\main\\resources\\testdata\\LoginData.json"
+                System.getProperty("user.dir") + "/src/main/resources/testdata/LoginData.json"
         );
 
         Object[][] data = new Object[testData.size()][1];

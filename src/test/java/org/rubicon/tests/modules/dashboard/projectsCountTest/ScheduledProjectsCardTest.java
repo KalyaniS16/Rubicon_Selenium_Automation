@@ -19,7 +19,7 @@ public class ScheduledProjectsCardTest extends BaseTest {
 
     private static final Logger LOG = LogManager.getLogger(ScheduledProjectsCardTest.class);
     private static final String TEST_DATA_PATH =
-            System.getProperty("user.dir") + "\\src\\main\\resources\\testdata\\ScheduledProjectsCardData.json";
+            System.getProperty("user.dir") + "/src/main/resources/testdata/ScheduledProjectsCardData.json";
 
     private ScheduledProjectsCard scheduledProjectsCard;
     private HashMap<String, String> testData;

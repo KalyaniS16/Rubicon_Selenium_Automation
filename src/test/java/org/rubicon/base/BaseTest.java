@@ -8,6 +8,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.rubicon.automation.app;
 import org.rubicon.automation.pages.module.dashboard.DashboardPage;
 import org.rubicon.automation.pages.LoginPage;
@@ -41,16 +42,32 @@ public class BaseTest {
 
 //		getting project path using user.dir
 //C:\Workspace\SmartRainLLP\Rubicon_Selenium_Automation\src\main\resources\config\global.properties
-        FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\main\\resources\\config\\global.properties");
+        FileInputStream fis = new FileInputStream(
+                System.getProperty("user.dir") + "/src/main/resources/config/global.properties");
         properties.load(fis);          // to load global.data properties file
 
 //      using ternary operation
-        String browserName = System.getProperty("browser")!=null ? System.getProperty("browser") : properties.getProperty("browser");           //this getProperty method will help to read the system level variables
-//		String browserName = properties.getProperty("browser");
+        String browserName = System.getProperty("browser") != null
+                ? System.getProperty("browser")
+                : properties.getProperty("browser");
+        if (browserName != null) {
+            browserName = browserName.trim();
+        }
 
-        if (browserName.equalsIgnoreCase("chrome")) {
+        boolean headless = resolveHeadless(properties);
+
+        if (browserName != null && browserName.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            if (headless) {
+                options.addArguments("--headless=new");
+            }
+            // Required on EC2 / Amazon Linux (no GUI, small /dev/shm)
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
+            driver = new ChromeDriver(options);
         }
 //		else if (browserName.equalsIgnoreCase("firefox")) {
 //			WebDriverManager.firefoxdriver().setup();
@@ -61,8 +78,31 @@ public class BaseTest {
 //			driver = new EdgeDriver();
 //		}
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+        if (!headless) {
+            driver.manage().window().maximize();
+        }
         return driver;
+    }
+
+    /**
+     * -Dheadless wins. Otherwise Linux servers without DISPLAY (EC2) run headless.
+     * On Windows/mac, uses global.properties (default false).
+     */
+    private boolean resolveHeadless(Properties properties) {
+        String systemHeadless = System.getProperty("headless");
+        if (systemHeadless != null && !systemHeadless.trim().isEmpty()) {
+            return Boolean.parseBoolean(systemHeadless.trim());
+        }
+        if (isLinuxWithoutDisplay()) {
+            return true;
+        }
+        String configured = properties.getProperty("headless", "false");
+        return Boolean.parseBoolean(configured.trim());
+    }
+
+    private boolean isLinuxWithoutDisplay() {
+        String os = System.getProperty("os.name", "").toLowerCase();
+        return os.contains("linux") && System.getenv("DISPLAY") == null;
     }
 
     public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException {
@@ -125,7 +165,7 @@ public class BaseTest {
 
         if (!isLoggedIn) {
             List<HashMap<String, String>> testData = getJsonDataToMap(
-                    System.getProperty("user.dir") + "\\src\\main\\resources\\testdata\\LoginData.json"
+                    System.getProperty("user.dir") + "/src/main/resources/testdata/LoginData.json"
             );
 
             if (testData == null || testData.isEmpty()) {

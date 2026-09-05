@@ -1,20 +1,14 @@
-2026-09-03 16:08:09.450 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
-2026-09-03 16:08:09.482 [main] INFO  org.rubicon.automation.pages.module.dashboard.serviceProjects.SnowProjectsCard - Service projects card is visible
-2026-09-03 16:08:13.772 [main] INFO  org.rubicon.automation.pages.module.dashboard.serviceProjects.SnowProjectsCard - Clicked on Snow Project Inner Page
-2026-09-03 16:08:13.772 [main] INFO  org.rubicon.tests.modules.dashboard.serviceProjectsTest.SnowProjectsCardTest - Inner page clicked
-2026-09-03 16:08:16.582 [main] INFO  org.rubicon.automation.pages.module.dashboard.serviceProjects.SnowProjectsCard - Clicked on date required
-2026-09-03 16:08:16.582 [main] INFO  org.rubicon.tests.modules.dashboard.serviceProjectsTest.SnowProjectsCardTest - The calendar is clickable
-2026-09-03 16:08:16.693 [main] INFO  org.rubicon.automation.pages.module.dashboard.serviceProjects.SnowProjectsCard - Download started; export snackbar dismissed
-2026-09-03 16:08:16.693 [main] INFO  org.rubicon.tests.modules.dashboard.serviceProjectsTest.SnowProjectsCardTest - The download data is clickable
-2026-09-03 16:08:19.118 [main] INFO  org.rubicon.automation.pages.module.dashboard.serviceProjects.SnowProjectsCard - Selected company option at position 5
-2026-09-03 16:08:19.207 [main] INFO  org.rubicon.automation.pages.module.dashboard.serviceProjects.SnowProjectsCard - Selected company option at position 6
-2026-09-03 16:08:20.420 [main] ERROR org.rubicon.automation.pages.module.dashboard.serviceProjects.SnowProjectsCard - Failed to apply filter: element click intercepted: Element <button _ngcontent-ffm-c207="" type="submit" class="button_min w-20 text-base p-0.5 mb-1 md:mb-0 justify-center">...</button> is not clickable at point (831, 507). Other element would receive the click: <div id="cdk-overlay-3" class="cdk-overlay-pane" style="position: static;">...</div>
-  (Session info: chrome=152.0.7977.65)
-Build info: version: '4.45.0', revision: 'cd6a3cd cd6a3cdfca6970f62e5bc8344109d0fe0e2af05e'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [ba63e189eccd2d31806b6fb697496bd6, clickElement {id=f.14E12419D548C101B73B7F02ABF47944.d.3D8CF13F8D76436FC3A3C393F29241C1.e.21891}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 152.0.7977.65, chrome: {chromedriverVersion: 152.0.7977.75 (4999cc1efed3..., userDataDir: C:\Users\KALYAN~1.SAJ\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50106}, goog:processID: 20540, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50106/devtoo..., se:cdpVersion: 152.0.7977.65, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (ba63e189eccd2d31806b6fb697496bd6)] -> xpath: //button[@type='submit' and normalize-space()='OK']]
-Session ID: ba63e189eccd2d31806b6fb697496bd6
-2026-09-03 16:08:22.681 [main] WARN  org.rubicon.listeners.TestListener - Test skipped: verifyTheAppliedFilterIsCleared
+2026-09-05 10:34:32.384 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-05 10:34:32.433 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Scheduled Employees card is visible
+2026-09-05 10:34:35.605 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Dashboard Scheduled Employees card count text: 5
+2026-09-05 10:34:35.606 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ScheduledEmployeesCardTest - Dashboard count: 5
+2026-09-05 10:34:35.719 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Clicked on Dashboard Scheduled Employees card
+2026-09-05 10:34:37.313 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Scheduled Employees title text: Scheduled Employees (5)
+2026-09-05 10:34:37.314 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ScheduledEmployeesCardTest - Page count: 5
+2026-09-05 10:34:37.425 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Searching for employee: Sai Church
+2026-09-05 10:34:39.580 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Page refreshed and employee list reloaded
+2026-09-05 10:34:41.625 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Scheduled Employees title text: Scheduled Employees (5)
+2026-09-05 10:34:41.691 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Export button clicked
+2026-09-05 10:35:03.732 [main] WARN  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Snackbar message not found, but export may have been initiated
+2026-09-05 10:35:03.857 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-05 10:35:03.857 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ScheduledEmployeesCardTest - Returned to dashboard after Scheduled Employees card tests
