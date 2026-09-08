@@ -151,7 +151,4 @@ public class SnowProjectsCard extends BasePage {
     //properties card:
     private final By propertiesLabel = By.xpath("//div[contains(@class,'isSnowSummary_divdashboard')]//span[@class='header-descript' and normalize-space()='Properties']");
     private final By scheduledProjects = By.xpath("//div[@class='innerText w-full']//span[contains(class,'text-tinys font-medium') and ]");
-
-
-
 }
