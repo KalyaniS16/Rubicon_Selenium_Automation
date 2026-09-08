@@ -1,0 +1,93 @@
+2026-09-08 17:57:58.302 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:57:58.484 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:57:58.514 [main] INFO  org.rubicon.tests.modules.dashboard.DashboardPageTest - Dashboard page verified successfully
+2026-09-08 17:57:58.651 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:57:58.736 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledProjectsCard - Scheduled Projects card is visible
+2026-09-08 17:58:00.966 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledProjectsCard - Dashboard Scheduled Projects card count text: 3
+2026-09-08 17:58:00.969 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ScheduledProjectsCardTest - Dashboard count: 3
+2026-09-08 17:58:01.129 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledProjectsCard - Clicked on Dashboard Scheduled Projects card
+2026-09-08 17:58:02.443 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledProjectsCard - Scheduled Projects title text: Scheduled Projects (3)
+2026-09-08 17:58:02.443 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ScheduledProjectsCardTest - Page count: 3
+2026-09-08 17:58:02.640 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledProjectsCard - Searching for project: CP Projects
+2026-09-08 17:58:04.935 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledProjectsCard - Page refreshed and project list reloaded
+2026-09-08 17:58:07.059 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledProjectsCard - Scheduled Projects title text: Scheduled Projects (3)
+2026-09-08 17:58:07.197 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledProjectsCard - Export button clicked
+2026-09-08 17:58:08.736 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledProjectsCard - Snackbar text: The data may take some time to export. Please wait.
+2026-09-08 17:58:08.895 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:58:08.895 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ScheduledProjectsCardTest - Returned to dashboard after Scheduled Projects card tests
+2026-09-08 17:58:08.984 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:58:09.038 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ActiveProjectsCard - Active Projects card is visible
+2026-09-08 17:58:12.303 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ActiveProjectsCard - Dashboard Active Projects card count text: 1
+2026-09-08 17:58:12.303 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ActiveProjectsCardTest - Dashboard count: 1
+2026-09-08 17:58:12.546 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ActiveProjectsCard - Clicked on Dashboard Active Projects card
+2026-09-08 17:58:13.176 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ActiveProjectsCard - Active Projects title text: Active Projects (1)
+2026-09-08 17:58:13.179 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ActiveProjectsCardTest - Page count: 1
+2026-09-08 17:58:13.399 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ActiveProjectsCard - Export button clicked
+2026-09-08 17:58:15.130 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ActiveProjectsCard - Snackbar text: The data may take some time to export. Please wait.
+2026-09-08 17:58:15.330 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:58:15.330 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ActiveProjectsCardTest - Returned to dashboard after Active Projects card tests
+2026-09-08 17:58:15.399 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:58:15.448 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Inactive Projects card is visible
+2026-09-08 17:58:18.401 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Dashboard Inactive Projects card count text: 6090
+2026-09-08 17:58:18.401 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.InactiveProjectsCardTest - Dashboard count: 6090
+2026-09-08 17:58:18.672 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Clicked on Dashboard Inactive Projects card
+2026-09-08 17:58:19.258 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Inactive Projects title text: Inactive Projects (6,090)
+2026-09-08 17:58:19.258 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.InactiveProjectsCardTest - Page count: 6090
+2026-09-08 17:58:19.416 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Export button clicked
+2026-09-08 17:58:20.948 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Snackbar text: The data may take some time to export. Please wait.
+2026-09-08 17:58:21.141 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Searching for project: SL DC 1
+2026-09-08 17:58:23.299 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Checkbox has been selected
+2026-09-08 17:58:43.573 [main] ERROR org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Error during project archiving: Expected condition failed: waiting for element found by By.xpath: //span[@mattooltip='Archive']/button to be clickable, but the element was not enabled.
+(tried for 20 seconds with 500 milliseconds interval)
+Build info: version: '4.45.0', revision: 'cd6a3cd cd6a3cdfca6970f62e5bc8344109d0fe0e2af05e'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 152.0.7977.77, chrome: {chromedriverVersion: 152.0.7977.82 (d04cdb24d67b..., userDataDir: C:\Users\KALYAN~1.SAJ\AppDa...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51433}, goog:processID: 14280, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51433/devtoo..., se:cdpVersion: 152.0.7977.77, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a770b8d101e9cc98403849191ebb1d48
+2026-09-08 17:58:44.057 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Page refreshed and project list reloaded
+2026-09-08 17:58:46.094 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Inactive Projects title text: Inactive Projects (6,090)
+2026-09-08 17:58:46.305 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Filter button clicked
+2026-09-08 17:58:46.929 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Searching for project: P0056
+2026-09-08 17:58:47.433 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Filter applied
+2026-09-08 17:58:49.679 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Filter button clicked
+2026-09-08 17:58:49.842 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Filter cleared
+2026-09-08 17:58:51.456 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Project status selected
+2026-09-08 17:58:51.571 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.InactiveProjectsCard - Filter applied
+2026-09-08 17:58:53.810 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:58:53.810 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.InactiveProjectsCardTest - Returned to dashboard after Inactive Projects card tests
+2026-09-08 17:58:53.845 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:58:53.874 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Scheduled Employees card is visible
+2026-09-08 17:58:57.020 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Dashboard Scheduled Employees card count text: 5
+2026-09-08 17:58:57.021 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ScheduledEmployeesCardTest - Dashboard count: 5
+2026-09-08 17:58:57.159 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Clicked on Dashboard Scheduled Employees card
+2026-09-08 17:58:58.755 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Scheduled Employees title text: Scheduled Employees (5)
+2026-09-08 17:58:58.755 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ScheduledEmployeesCardTest - Page count: 5
+2026-09-08 17:58:58.878 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Searching for employee: Sai Church
+2026-09-08 17:59:00.958 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Page refreshed and employee list reloaded
+2026-09-08 17:59:02.999 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Scheduled Employees title text: Scheduled Employees (5)
+2026-09-08 17:59:03.063 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Export button clicked
+2026-09-08 17:59:04.631 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ScheduledEmployeesCard - Snackbar text: The data may take some time to export. Please wait.
+2026-09-08 17:59:04.893 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:59:04.894 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ScheduledEmployeesCardTest - Returned to dashboard after Scheduled Employees card tests
+2026-09-08 17:59:04.916 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:59:04.935 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ActiveEmployeesCard - Active Employees card is visible
+2026-09-08 17:59:08.064 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ActiveEmployeesCard - Dashboard Active Employees card count text: 1
+2026-09-08 17:59:08.064 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ActiveEmployeesCardTest - Dashboard count: 1
+2026-09-08 17:59:08.149 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ActiveEmployeesCard - Clicked on Dashboard Active Employees card
+2026-09-08 17:59:08.715 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ActiveEmployeesCard - Active Employees title text: Active Employees (1)
+2026-09-08 17:59:08.715 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ActiveEmployeesCardTest - Page count: 1
+2026-09-08 17:59:08.812 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ActiveEmployeesCard - Export button clicked
+2026-09-08 17:59:10.359 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ActiveEmployeesCard - Snackbar text: The data may take some time to export. Please wait.
+2026-09-08 17:59:10.533 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:59:10.533 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ActiveEmployeesCardTest - Returned to dashboard after Active Employees card tests
+2026-09-08 17:59:10.568 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:59:10.597 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ProductionReportsCard - Production Reports card is visible
+2026-09-08 17:59:13.729 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ProductionReportsCard - Dashboard Production Reports card count text: 0/0
+2026-09-08 17:59:13.729 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ProductionReportsCardTest - Dashboard count: 0
+2026-09-08 17:59:13.821 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ProductionReportsCard - Clicked on Dashboard Production Reports card
+2026-09-08 17:59:14.376 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ProductionReportsCard - Production Reports title text: Production Reports (0)
+2026-09-08 17:59:14.377 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ProductionReportsCardTest - Page count: 0
+2026-09-08 17:59:14.451 [main] INFO  org.rubicon.automation.pages.module.dashboard.projectsCount.ProductionReportsCard - Export button clicked
+2026-09-08 17:59:36.534 [main] WARN  org.rubicon.automation.pages.module.dashboard.projectsCount.ProductionReportsCard - Snackbar message not found, but export may have been initiated
+2026-09-08 17:59:36.758 [main] INFO  org.rubicon.automation.pages.module.dashboard.DashboardPage - Dashboard page loaded
+2026-09-08 17:59:36.795 [main] INFO  org.rubicon.tests.modules.dashboard.projectsCountTest.ProductionReportsCardTest - Suite complete — browser remains open on dashboard
