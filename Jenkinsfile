@@ -49,7 +49,7 @@ pipeline {
                 echo '=== Running Dashboard TestNG suite only ==='
                 sh '''
                     mvn test \
-                      -Dsurefire.suiteXmlFiles=TestSuite/dashboard-only.xml \
+                      -Dsurefire.suiteXmlFiles=TestSuite/dashboardCards.xml \
                       -Dbrowser=chrome \
                       -Dheadless=true
                 '''
