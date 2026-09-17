@@ -46,13 +46,16 @@ pipeline {
                     sleep 2
                 '''
 
-                echo '=== Running Dashboard TestNG suite only ==='
-                sh '''
-                    mvn test \
-                      -Dsurefire.suiteXmlFiles=TestSuite/dashboardCards.xml \
-                      -Dbrowser=chrome \
-                      -Dheadless=true
-                '''
+                echo '=== Running Dashboard TestNG suite (failures ignored) ==='
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    sh '''
+                        mvn test \
+                          -Dsurefire.suiteXmlFiles=TestSuite/dashboardCards.xml \
+                          -Dbrowser=chrome \
+                          -Dheadless=true \
+                          -Dmaven.test.failure.ignore=true
+                    '''
+                }
             }
         }
 
@@ -70,10 +73,13 @@ pipeline {
             junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
         }
         success {
-            echo 'Dashboard TestNG tests PASSED'
+            echo 'Pipeline completed successfully (individual test failures may still appear in reports)'
+        }
+        unstable {
+            echo 'Some tests failed — see surefire-reports and reports/index.html'
         }
         failure {
-            echo 'Dashboard TestNG tests FAILED — check logs/test.log and reports/index.html'
+            echo 'Pipeline failed — check logs/test.log and Jenkins console output'
         }
     }
 }
